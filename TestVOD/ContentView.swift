@@ -10,14 +10,17 @@ import SwiftUI
 struct ContentView: View {
     @AppStorage("vodText") private var vodText: String = ""
     @AppStorage("reg") var reg: String = #"http(.*)\/api\.php\/provide\/vod\/at\/xml"#
+    @AppStorage("keyword") var keyword: String = "娱乐百分百"
 
     @State var result: [String] = []
 
     @State var show: Bool = false
     @State var text: String = "等待開始"
     @State var textL: String = "等待開始"
-    @State var textR: String = ""
+    @State var textR: String = "等待開始"
 
+    
+    
     var body: some View {
         List {
             Section(header: Text("匹配正則")) {
@@ -25,6 +28,7 @@ struct ContentView: View {
             }
 
             Section(header: Text("內容")) {
+                TextField("Keyword", text: $keyword)
                 TextEditor(text: $vodText)
                     .frame(height: 300)
             }
@@ -43,22 +47,26 @@ struct ContentView: View {
                 Text("顯示結果")
             }
         }
-    
+
         .navigationTitle("VOD 地址格式測試")
         .sheet(isPresented: $show, content: {
             List {
-                Section(header: Text("上次結果")) {
-                    HStack {
-                        Text(textL)
-                            .lineLimit(1)
-                            .font(.caption2)
-
-                        Spacer()
-
-                        Text(textR)
-                            .font(.caption2)
-                            .lineLimit(1)
+                #if targetEnvironment(macCatalyst)
+                    Button {
+                        show.toggle()
+                    } label: {
+                        Text("關閉窗口")
                     }
+                #endif
+
+                Section(header: Text("上次結果")) {
+                    Text(textL)
+                        .lineLimit(1)
+                        .font(.caption2)
+
+                    Text(textR)
+                        .font(.caption2)
+                        .lineLimit(5)
                 }
 
                 Section(header: Text("正在測試")) {
@@ -127,10 +135,10 @@ struct ContentView: View {
                 print(apiURL.description)
                 if let time = await apiURL.responseTimeAsync() {
                     print("...", time.description)
-                    let r = await search(keyword: "娱乐百分百", vodURL: apiURL.description)
+                    let r = await search(keyword: keyword, vodURL: apiURL.description)
 
                     textL = apiURL.description
-                    textR = "\(time.description) - \(r ?? "nil")"
+                    textR = "\(r ?? "nil")"
 
                     if r?.contains("m3u8") == true {
                         print("### ->", apiURL.description, "<- ###")
