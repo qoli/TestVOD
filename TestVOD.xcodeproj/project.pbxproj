@@ -7,19 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F94CB7CA29922C980022EF08 /* VODHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94CB7C929922C980022EF08 /* VODHelper.swift */; };
 		F98F4D972989B4FE00D6ABE8 /* TestVODApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98F4D962989B4FE00D6ABE8 /* TestVODApp.swift */; };
 		F98F4D992989B4FE00D6ABE8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98F4D982989B4FE00D6ABE8 /* ContentView.swift */; };
 		F98F4D9B2989B50100D6ABE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F98F4D9A2989B50100D6ABE8 /* Assets.xcassets */; };
 		F98F4D9F2989B50100D6ABE8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F98F4D9E2989B50100D6ABE8 /* Preview Assets.xcassets */; };
+		F98F4DA62989B59000D6ABE8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98F4DA52989B59000D6ABE8 /* String.swift */; };
+		F98F4DA82989B62D00D6ABE8 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98F4DA72989B62D00D6ABE8 /* URL.swift */; };
+		F98F4DAA2989B63A00D6ABE8 /* api.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98F4DA92989B63A00D6ABE8 /* api.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F94CB7C929922C980022EF08 /* VODHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VODHelper.swift; sourceTree = "<group>"; };
 		F98F4D932989B4FE00D6ABE8 /* TestVOD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestVOD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F98F4D962989B4FE00D6ABE8 /* TestVODApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVODApp.swift; sourceTree = "<group>"; };
 		F98F4D982989B4FE00D6ABE8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F98F4D9A2989B50100D6ABE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F98F4D9C2989B50100D6ABE8 /* TestVOD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestVOD.entitlements; sourceTree = "<group>"; };
 		F98F4D9E2989B50100D6ABE8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F98F4DA52989B59000D6ABE8 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		F98F4DA72989B62D00D6ABE8 /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		F98F4DA92989B63A00D6ABE8 /* api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = api.swift; sourceTree = "<group>"; };
+		F98F4DAB2989B7E000D6ABE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +61,11 @@
 		F98F4D952989B4FE00D6ABE8 /* TestVOD */ = {
 			isa = PBXGroup;
 			children = (
+				F98F4DAB2989B7E000D6ABE8 /* Info.plist */,
+				F94CB7C929922C980022EF08 /* VODHelper.swift */,
+				F98F4DA92989B63A00D6ABE8 /* api.swift */,
+				F98F4DA72989B62D00D6ABE8 /* URL.swift */,
+				F98F4DA52989B59000D6ABE8 /* String.swift */,
 				F98F4D962989B4FE00D6ABE8 /* TestVODApp.swift */,
 				F98F4D982989B4FE00D6ABE8 /* ContentView.swift */,
 				F98F4D9A2989B50100D6ABE8 /* Assets.xcassets */,
@@ -139,8 +153,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F98F4DAA2989B63A00D6ABE8 /* api.swift in Sources */,
+				F98F4DA62989B59000D6ABE8 /* String.swift in Sources */,
 				F98F4D992989B4FE00D6ABE8 /* ContentView.swift in Sources */,
 				F98F4D972989B4FE00D6ABE8 /* TestVODApp.swift in Sources */,
+				F98F4DA82989B62D00D6ABE8 /* URL.swift in Sources */,
+				F94CB7CA29922C980022EF08 /* VODHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +287,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TestVOD/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -307,6 +326,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TestVOD/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
