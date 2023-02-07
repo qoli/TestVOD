@@ -9,33 +9,42 @@ import SwiftUI
 
 struct ContentView: View {
     @AppStorage("vodText") private var vodText: String = ""
+    @AppStorage("reg") var reg: String = #"http(.*)\/api\.php\/provide\/vod\/at\/xml"#
 
     @State var result: [String] = []
 
     @State var show: Bool = false
-    @State var text: String = "test"
-    @State var textL: String = "test"
+    @State var text: String = "等待開始"
+    @State var textL: String = "等待開始"
     @State var textR: String = ""
 
     var body: some View {
-        VStack {
-            TextEditor(text: $vodText)
-            HStack {
-                Button {
-                    Task {
-                        await appear()
-                    }
-                } label: {
-                    Text("Test")
-                }
+        List {
+            Section(header: Text("匹配正則")) {
+                TextField("正則", text: $reg)
+            }
 
-                Button {
-                    show.toggle()
-                } label: {
-                    Text("Show")
+            Section(header: Text("內容")) {
+                TextEditor(text: $vodText)
+                    .frame(height: 300)
+            }
+
+            Button {
+                Task {
+                    await appear()
                 }
+            } label: {
+                Text("開始測試")
+            }
+
+            Button {
+                show.toggle()
+            } label: {
+                Text("顯示結果")
             }
         }
+    
+        .navigationTitle("VOD 地址格式測試")
         .sheet(isPresented: $show, content: {
             List {
                 Section(header: Text("上次結果")) {
@@ -65,21 +74,40 @@ struct ContentView: View {
                     }
                 }
 
-                Section {
+                Section(header: Text("通過測試的 VOD")) {
+                    if result.count == 0 {
+                        Text("尚未發現")
+                    }
+
                     ForEach(result, id: \.self) { api in
-                        Text(api)
-                            .textSelection(.enabled)
+                        HStack {
+                            Text(api)
+                                .font(.caption2)
+                                .textSelection(.enabled)
+                                .lineLimit(1)
+
+                            Spacer()
+
+                            Button {
+                                #if os(iOS)
+                                    UIPasteboard.general.string = api
+                                #endif
+
+                                #if os(macOS)
+                                    let pasteboard = NSPasteboard.general
+                                    pasteboard.declareTypes([.string], owner: nil)
+                                    pasteboard.setString(api, forType: .string)
+                                #endif
+                            } label: {
+                                Text("複製")
+                            }
+                        }
                     }
                 }
             }
-
             .animation(.easeInOut, value: text)
             .animation(.easeInOut, value: result.count)
         })
-        .padding()
-        .task {
-            await appear()
-        }
     }
 
     @State var i = 0
@@ -88,7 +116,7 @@ struct ContentView: View {
     func appear() async {
         show = true
 
-        let list = vodText.regex(for: #"http(.*)\/api\.php\/provide\/vod\/at\/xml"#)
+        let list = vodText.regex(for: reg)
 
         c = list.count
 
@@ -118,12 +146,6 @@ struct ContentView: View {
                     textL = apiURL.description
                     textR = "timeout"
                 }
-
-//                if let time = await apiURL.responseTimeAsync() {
-
-//
-
-//                }
             }
         }
     }

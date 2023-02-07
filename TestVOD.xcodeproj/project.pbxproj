@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F94CB7CA29922C980022EF08 /* VODHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94CB7C929922C980022EF08 /* VODHelper.swift */; };
 		F98F4D972989B4FE00D6ABE8 /* TestVODApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98F4D962989B4FE00D6ABE8 /* TestVODApp.swift */; };
 		F98F4D992989B4FE00D6ABE8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98F4D982989B4FE00D6ABE8 /* ContentView.swift */; };
 		F98F4D9B2989B50100D6ABE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F98F4D9A2989B50100D6ABE8 /* Assets.xcassets */; };
@@ -18,7 +17,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F94CB7C929922C980022EF08 /* VODHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VODHelper.swift; sourceTree = "<group>"; };
 		F98F4D932989B4FE00D6ABE8 /* TestVOD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestVOD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F98F4D962989B4FE00D6ABE8 /* TestVODApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVODApp.swift; sourceTree = "<group>"; };
 		F98F4D982989B4FE00D6ABE8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -62,7 +60,6 @@
 			isa = PBXGroup;
 			children = (
 				F98F4DAB2989B7E000D6ABE8 /* Info.plist */,
-				F94CB7C929922C980022EF08 /* VODHelper.swift */,
 				F98F4DA92989B63A00D6ABE8 /* api.swift */,
 				F98F4DA72989B62D00D6ABE8 /* URL.swift */,
 				F98F4DA52989B59000D6ABE8 /* String.swift */,
@@ -158,7 +155,6 @@
 				F98F4D992989B4FE00D6ABE8 /* ContentView.swift in Sources */,
 				F98F4D972989B4FE00D6ABE8 /* TestVODApp.swift in Sources */,
 				F98F4DA82989B62D00D6ABE8 /* URL.swift in Sources */,
-				F94CB7CA29922C980022EF08 /* VODHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +303,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -346,6 +344,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
